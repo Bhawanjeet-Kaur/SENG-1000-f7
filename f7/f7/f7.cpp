@@ -9,5 +9,26 @@
 #pragma warning(disable: 4996)
 int main(void)
 {
+	//For text file
+	FILE* firstFilePointer = NULL;
+	firstFilePointer = fopen("myTextFile.txt", "w");
+	if (firstFilePointer == NULL)
+	{
+		printf("Unable to create file.\n");
+		return -1;
+	}
+	if (fprintf(firstFilePointer, "This is line 1.\n") < 0)
+	{
+		printf("Can't write to file.\n");
+		return -2;
+	}
+	if (fprintf(firstFilePointer, "This is line 2.\n") < 0)
+	{
+		printf("Can't write to file.\n");
+		return -2;
+	}
+	fclose(firstFilePointer);
+
+
 	return 0;
 }
